@@ -16,3 +16,12 @@ def index(request):
         'players_rest': top_players_rest,
     }
     return render(request,'index.html',context)
+
+
+def detail(request, player_pk):
+    player = playerModel.objects.get(pk=player_pk)
+    print(player)
+    context = {
+        'player': player,
+    }
+    return render(request, 'detail.html', context)
