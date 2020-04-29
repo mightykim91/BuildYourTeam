@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import playerModel
 
 
@@ -15,7 +15,7 @@ def index(request):
         'players_five': top_players_five,
         'players_rest': top_players_rest,
     }
-    return render(request,'index.html',context)
+    return render(request,'crud/index.html',context)
 
 
 def detail(request, player_pk):
@@ -24,4 +24,13 @@ def detail(request, player_pk):
     context = {
         'player': player,
     }
-    return render(request, 'detail.html', context)
+    return render(request, 'crud/detail.html', context)
+
+
+def player_list(request):
+    players = playerModel.objects.order_by('player_name')
+    context = {
+        'players': players,
+        }
+    return render(request, 'crud/player_list.html', context)
+

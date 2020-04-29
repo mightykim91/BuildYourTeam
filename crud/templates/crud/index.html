@@ -10,7 +10,7 @@
     </div>
   </div>
   <h1 class="mt-5 text-center">TOP 10 PLAYERS</h1>
-
+  <!--player name section -->
   <div class="d-flex flex-column bd-3 mt-3">
     <div class="d-flex flex-row justify-content-between p-1 text-dark">
       {% for player in players_five %}
@@ -27,7 +27,7 @@
           <div class="container">
             <div class="row">
               <div class="col-8">
-                <p class="font-weight-bold">{{ player.player_name }}</p>
+                <a href="{% url 'crud:detail' player.pk %}"><p class="font-weight-bold">{{ player.player_name }}</p></a>
                 <p>{{ player.team_name }}</p>
               </div>
               <div class="col-4">

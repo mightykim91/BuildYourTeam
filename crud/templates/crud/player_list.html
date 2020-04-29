@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  {% for player in players %}
+    <h5>{{ player.player_name }}</h5>
+    <p>{{ player.team_name }}</p>
+    <hr>
+  {% endfor %}
+{% endblock %}
